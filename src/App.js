@@ -22,15 +22,16 @@ function App() {
   });
 
   React.useEffect(() => {
-    const user = localStorage.getItem("user");
+    const user = JSON.parse(localStorage.getItem("user"));
     if(user) {
+      console.log(user);
       setIsLoggedIn(true)
       setUser(user);
     }
   }, []);
 
   async function logout() {
-    localStorage.removeItem("token");
+    localStorage.removeItem("user");
     setIsLoggedIn(false);
     navigate("/")
   }

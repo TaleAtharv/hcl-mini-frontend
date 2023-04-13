@@ -22,7 +22,7 @@ export default function Login(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`http://localhost:5000/auth/login`, login)
+      .post(`https://splendid-red-cocoon.cyclic.app/auth/login`, login)
       .then((res) => {
         setAlert(res.data.message);
         if (res.data.message === "Logged In Successfully") {
@@ -30,7 +30,8 @@ export default function Login(props) {
             email: res.data.email
           });
           props.setIsLoggedIn(true);
-          localStorage.setItem("user", res.data.user);
+          console.log(res.data.user);
+          localStorage.setItem("user", JSON.stringify(res.data.user));
           navigate("/");
         }
       })

@@ -4,8 +4,10 @@ import axios from "axios";
 export default function MyBookings(props) {
   const [mybooking, setMyBookings] = React.useState([]);
   React.useEffect(() => {
+    const url = `https://splendid-red-cocoon.cyclic.app/ticket/retrieveAll/${props.user.email}`;
+    console.log(url);
     axios
-      .get(`http://localhost:5000/ticket/retrieveAll/${props.user.email}`)
+      .get(`https://splendid-red-cocoon.cyclic.app/ticket/retrieveAll/${props.user.email}`)
       .then((res) => {
         setMyBookings(res.data);
       })

@@ -29,7 +29,7 @@ export default function Register() {
     ) {
       if (register.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
         axios
-          .post("https://tickets.tunnels.onboardbase.com/auth/register", register)
+          .post("https://splendid-red-cocoon.cyclic.app/auth/register", register)
           .then((res) => {
             setAlert(res.data.message);
           })
